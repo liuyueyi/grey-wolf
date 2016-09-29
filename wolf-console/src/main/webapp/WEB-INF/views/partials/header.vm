@@ -1,0 +1,23 @@
+<div class="app-header navbar">
+  <div class="navbar-header bg-black">
+    <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+      <i class="glyphicon glyphicon-cog"></i>
+    </button>
+    <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll-to="app">
+      <i class="glyphicon glyphicon-align-justify"></i>
+    </button>
+    <a href="/" class="navbar-brand text-lt">
+      <i class="fa fa-btc"></i>
+      <span class="hidden-folded m-l-xs ng-binding">Media Console</span>
+    </a>
+  </div>
+  <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+    <!-- buttons -->
+    <div class="nav navbar-nav hidden-xs">
+      <a href="" class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+        <i class="fa fa-dedent fa-fw"></i>
+      </a>
+    </div>
+    <!-- / buttons -->
+  </div>
+</div>

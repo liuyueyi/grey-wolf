@@ -1,0 +1,32 @@
+#extends("/layouts/main.vm")
+
+
+#block("style")
+
+#end
+
+#block("content")
+<div class="app-content-body">
+  <div class="wrapper-md">
+    <div class="panel panel-default">
+      <div class="panel-heading">图片上传</div>
+      // ...
+        <form id="form1" runat="server" enctype="multipart/form-data" >
+            <div>
+                <a id="addAttach" href="#">添加上传文件</a>
+                <div id="files">
+                    <input type="image" name="f1"/>
+                </div>
+                <asp:Button ID="btnSend" runat="server" Text="发送" onclick="btnSend_Click" />
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+#end
+
+#block("script")
+
+#end
+
+#end
