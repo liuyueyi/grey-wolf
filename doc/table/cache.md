@@ -43,7 +43,7 @@ String ans = parser.parseExpression(key).getValue(context, String.class);
 System.out.println(ans);
 ```
 
-另外一个需要注意的是,获取切面获取method,不能简单的使用`（）(MethodSignature) point.getSignature()).getMethod();`
+另外一个需要注意的是,获取切面获取method,不能简单的使用`((MethodSignature) point.getSignature()).getMethod();`
 
 因为上面的方法获取的方法可能为父类的方法, 而不是当前执行类的方法, 因此可能出现各种奇怪的问题, 因此在切面中采用了反射的方法获取当前执行的方法
 
@@ -69,6 +69,7 @@ public Method getMethod(ProceedingJoinPoint pjp) {
 
 
 3. 实现逻辑
+
 > 实现逻辑比较简单, 首先是获取key, 查缓存, 未命中, 则执行方法, 将返回结果塞入缓存; 命中, 则直接返回
 
 
