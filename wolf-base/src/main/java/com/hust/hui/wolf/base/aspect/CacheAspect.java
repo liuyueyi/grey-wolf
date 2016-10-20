@@ -5,7 +5,6 @@ import com.hust.hui.wolf.base.midware.api.ICache;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by yihui on 16/9/25.
@@ -112,7 +110,7 @@ public class CacheAspect {
         return parser.parseExpression(key).getValue(context, String.class);
     }
 
-
+/*
     AtomicInteger atomicInteger = new AtomicInteger(1);
 
     @Before("execution(* com.hust.hui.wolf.core..*(..))")
@@ -120,6 +118,6 @@ public class CacheAspect {
         redisCache.putObject("atomic", atomicInteger, 1000);
         logger.info("start--------");
     }
-
+*/
 
 }

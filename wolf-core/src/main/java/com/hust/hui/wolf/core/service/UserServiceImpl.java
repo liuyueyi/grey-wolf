@@ -25,4 +25,16 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.getUserByUserName(uname);
     }
+
+
+    public User login(String uname, String email, Long phone, String password) {
+        if (StringUtils.isBlank(password) ||
+                (StringUtils.isBlank(uname) &&
+                        StringUtils.isBlank(email) &&
+                        (phone == null || phone < 0))) {
+            return null;
+        }
+
+        return userRepository.login(uname, email, phone, password);
+    }
 }

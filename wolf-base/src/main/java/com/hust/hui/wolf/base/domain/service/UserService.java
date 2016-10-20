@@ -9,4 +9,5 @@ public interface UserService {
 
     User getUserByName(String uname);
 
+    User login(String uname, String email, Long phone, String password);
 }

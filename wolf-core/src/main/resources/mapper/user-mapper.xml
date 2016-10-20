@@ -13,4 +13,22 @@
         select * from user where userId=#{userId} limit 1;
     </select>
 
+    <select id="login" resultType="User" parameterType="java.util.Map">
+        select * from USER
+        WHERE
+        <choose>
+            <when test="username != null">
+                username = #{username}
+            </when>
+            <when test="email != null">
+                email = #{email}
+            </when>
+            <when test="phone != null">
+                phone = #{phone}
+            </when>
+        </choose>
+        and password = #{password}
+        limit 1
+    </select>
+
 </mapper>

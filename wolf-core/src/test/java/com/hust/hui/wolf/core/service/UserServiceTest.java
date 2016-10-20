@@ -40,4 +40,25 @@ public class UserServiceTest {
         user = userService.getUserByName(uname);
         logger.info("the `{}` user is: {}", user);
     }
+
+    @Test
+    public void testLogin() {
+        String uname = "username";
+        String password = "123456";
+        String email = "greywolf@xxx.com";
+        Long phone = 15971112301L;
+
+        User ans = userService.login(uname, null, null, password);
+        logger.info("login by illegal uname : {}", ans);
+
+        ans = userService.login(null, email, null, password);
+        logger.info("login by email : {}", ans);
+
+        ans = userService.login(null, null, phone, password);
+        logger.info("login by phone : {}", ans);
+
+
+        ans = userService.login("小灰灰", null, null, password);
+        logger.info("login by uname : {}", ans);
+    }
 }

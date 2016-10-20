@@ -94,7 +94,8 @@ public class RedisCache implements ICache, InitializingBean {
     @Override
     public boolean putObject(String key, Object obj, int expire) {
         if (null == key || null == obj) {
-            throw new IllegalArgumentException("prefix or obj is null" + key + " obj: " + obj);
+            logger.info("prefix or obj is null" + key + " obj: " + obj);
+            return false;
         }
         Jedis jedis = null;
         try {
