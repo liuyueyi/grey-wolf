@@ -2,8 +2,9 @@ package com.hust.hui.wolf.console.anction.login;
 
 import com.hust.hui.wolf.base.domain.model.entity.User;
 import com.hust.hui.wolf.base.domain.service.UserService;
-import com.hust.hui.wolf.console.anction.Action;
 import com.hust.hui.wolf.console.anction.ResponseWrapper;
+import com.hust.hui.wolf.console.anction.base.Action;
+import com.hust.hui.wolf.console.aspect.EValidated;
 import com.hust.hui.wolf.console.constants.ResponseCode;
 import com.hust.hui.wolf.console.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -30,14 +31,20 @@ public class LoginAction implements Action {
     private UserService userService;
 
     @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
+    @EValidated
     @ResponseBody
     public ResponseWrapper execution(HttpServletRequest httpServletRequest, LoginRequest loginRequest) {
         logger.info("the loginRequest is: {}", loginRequest);
         User user = userService.login(loginRequest.getUsername(), loginRequest.getEmail(), loginRequest.getPhone(), loginRequest.getPassword());
+
+        LoginResponse response = new LoginResponse();
         if (user != null) {
-            return ResponseUtil.buildSuccResponse("login success! welcome " + user.getNickname());
+            response.setNickname(user.getNickname());
+            response.setWelcome("login success! welcome to grey wolf!");
+            return ResponseUtil.buildSuccResponse(response);
         } else {
-            return ResponseUtil.buildFailResponse("用户名or密码错误", ResponseCode.NOT_LOGIN);
+            response.setWelcome("login failed");
+            return ResponseUtil.buildFailResponse(response, ResponseCode.ERROR);
         }
     }
 }

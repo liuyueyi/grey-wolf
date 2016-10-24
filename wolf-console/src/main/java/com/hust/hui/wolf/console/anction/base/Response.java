@@ -1,4 +1,4 @@
-package com.hust.hui.wolf.console.anction;
+package com.hust.hui.wolf.console.anction.base;
 
 /**
  * Created by yihui on 16/9/25.

@@ -10,9 +10,6 @@
 
     <import resource="classpath:service.xml"/>
 
-    <context:component-scan base-package="com.hust.hui.wolf.console"/>
-    <beans:annotation-driven/>
-
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
@@ -44,6 +41,7 @@
         <property name="order" value="0" />
     </bean>
 
+    <!--将controller返回的对象封装成json串返回-->
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>

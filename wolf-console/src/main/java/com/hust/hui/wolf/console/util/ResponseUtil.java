@@ -20,4 +20,11 @@ public class ResponseUtil {
         responseWrapper.setResult(data);
         return responseWrapper;
     }
+
+    public static <T> ResponseWrapper<T> buildExceptionResponse(T data, ResponseWrapper.Status status) {
+        ResponseWrapper<T> responseWrapper = new ResponseWrapper<>();
+        responseWrapper.setStatus(status);
+        responseWrapper.setResult(data);
+        return responseWrapper;
+    }
 }

@@ -32,7 +32,7 @@ public class RegexTest {
 
     @Test
     public void testSpel() {
-        String key = "prefix_#name";
+        String key = "#name";
         //使用SPEL进行key的解析
         ExpressionParser parser = new SpelExpressionParser();
         //SPEL上下文
