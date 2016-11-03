@@ -11,7 +11,7 @@ import java.io.IOException;
  * 图片裁剪\旋转\拉伸\加水印
  * Created by yihui on 16/10/31.
  */
-public class ImgOperateUtil {
+public class ImgBasicOperateUtil {
 
     /**
      * 裁剪图片

@@ -115,7 +115,6 @@ im 裁图  `convert test.jpg -crop 640x960+0+0 output.jpg`
     纵向拼接（-append），右对齐（-gravity east）：
     `convert image1.png image2.png image3.png -gravity east -append result.png`
 
-
 8. 图片信息
 
     `identify test.png`
