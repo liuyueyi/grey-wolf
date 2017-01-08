@@ -1,6 +1,7 @@
 package com.hust.hui.wolf.core.repository;
 
-import com.hust.hui.wolf.base.domain.model.entity.User;
+import com.hust.hui.wolf.base.domain.model.entity.UserInfo;
+import com.hust.hui.wolf.common.cache.aspect.CacheEnabledDot;
 import com.hust.hui.wolf.core.repository.dal.UserDao;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,36 @@ public class UserRepository {
     @Autowired
     private UserDao userDao;
 
+    public UserInfo addUser(UserInfo userInfo) {
+        if (userDao.addUser(userInfo)) {
+            return userInfo;
+        } else {
+            return null;
+        }
+    }
 
-    public User getUserByUserName(String username) {
+
+    @CacheEnabledDot(prefix = "wolfUname", key = "#uname", expire = 1000)
+    public UserInfo getUserByUserName(String username) {
         return userDao.getUserByUname(username);
     }
 
 
-    public User getUserByUserId(long userId) {
+    public UserInfo getUserByUserId(long userId) {
         return userDao.getUserByUid(userId);
     }
 
-    public User login(String uname, String email, Long phone, String password) {
+
+    /**
+     * 判断用户是否登录
+     *
+     * @param uname
+     * @param email
+     * @param phone
+     * @param password
+     * @return
+     */
+    public UserInfo login(String uname, String email, Long phone, String password) {
         if (StringUtils.isBlank(password)) {
             return null;
         }
@@ -45,7 +65,7 @@ public class UserRepository {
             return null;
         }
 
-        User user = userDao.login(map);
+        UserInfo user = userDao.login(map);
         return user;
     }
 

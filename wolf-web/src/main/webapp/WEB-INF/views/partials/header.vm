@@ -1,0 +1,21 @@
+<li class="nav-header">
+    <div class="dropdown profile-element">
+        <img alt="image" height="45px" class="img-circle pull-left" src="/static/img/profile.png"/>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span class="clear">
+                <span class="block m-t-xs pull-right">
+                    <strong class="font-bold">
+                        小灰灰
+                    </strong><b class="caret"></b></span> </span>
+            <span class="text-muted text-xs block pull-right">
+                    bangzewu@126.com </span>
+        </a>
+        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="logo-element">
+        Medio+
+    </div>
+</li>

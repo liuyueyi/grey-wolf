@@ -1,0 +1,97 @@
+#set($layout = "layouts/main.vm")
+#set($pageTitle = "图片压缩")
+
+<div class="ibox">
+    <!-- Jumbotron -->
+
+    <div class="ibox-title">
+        <form action="" class="m-b-md" method="GET">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="选择本地图片 or 输入绝对地址" id="imgUrl"
+                value="https://avatars1.githubusercontent.com/u/5125892?v=3&s=460">
+                <span class="hide">
+                    <span class="fileinput-new">Select file</span>
+                    <span class="fileinput-exists">Change</span>
+                    <input type="file" name="..." id="inputBtn"/>
+                </span>
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="chooseBtn">choose</button>
+                </div>
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="button" id="getImg">get</button>
+                </div>
+                <div class="input-group-btn">
+                    <button class="btn btn-danger" type="button" id="uploadBtn">done</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Content -->
+    <div class="ibox-content">
+        <div class="row">
+            <!-- <h3 class="page-header">Data:</h3> -->
+            <div class="docs-data">
+                <div class="col-md-12">
+                    <sapn><h3>压缩参数</h3></sapn>
+                    <hr/>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <label class="input-group-addon" for="dataWidth">压缩宽</label>
+                        <input type="number" class="form-control" id="dataWidth" placeholder="0 < width < 2560">
+                        <span class="input-group-addon">px</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <label class="input-group-addon" for="dataHeight">压缩高</label>
+                        <input type="number" class="form-control" id="dataHeight" placeholder="0 < height < 1600">
+                        <span class="input-group-addon">px</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <label class="input-group-addon" for="dataRatio">压缩比</label>
+                        <input type="text" class="form-control" id="dataRatio" placeholder="0 < ratio < 1">
+                        <span class="input-group-addon">px</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <label class="input-group-addon" for="dataQuality">图精度</label>
+                        <input type="number" class="form-control" id="dataQuality" placeholder="0 < quality < 100">
+                        <span class="input-group-addon">px</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12">
+                <hr align="center" color="#000000" size="1">
+                <label id="upImgInfo" class="col-md-12"></>
+            </div>
+            <div class="col-md-12">
+                <hr align="center" color="#000000" size="1">
+                <div class="col-md-6">
+                    <sapn><h3>local preview(本地预览)</h3></sapn>
+                    <hr/>
+                    <image src="" width="100%" id="preImg"></image>
+                </div>
+                <div class="col-md-6">
+                    <sapn><h3>upload receive(线上预览)</h3></sapn>
+                    <hr/>
+                    <image src="" width="100%" id="upImg"></image>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+
+    </div>
+</div>
+
+<script src="/static/js/biz/scale.js"></script>

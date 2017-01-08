@@ -5,6 +5,6 @@
 <configuration>
 
     <typeAliases>
-        <typeAlias type="com.hust.hui.wolf.base.domain.model.entity.User" alias="User"/>
+        <typeAlias type="com.hust.hui.wolf.base.domain.model.entity.UserInfo" alias="User"/>
     </typeAliases>
 </configuration>

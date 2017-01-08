@@ -1,8 +1,8 @@
 package com.hust.hui.wolf.core.service;
 
-import com.hust.hui.wolf.base.domain.model.entity.User;
-import com.hust.hui.wolf.base.domain.service.UserService;
-import com.hust.hui.wolf.core.repository.UserRepository;
+import com.hust.hui.wolf.base.domain.model.entity.UserInfo;
+import com.hust.hui.wolf.base.domain.req.UserReqDO;
+import com.hust.hui.wolf.base.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by yihui on 16/9/25.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath*:spring/*.xml"})
+@ContextConfiguration({"classpath:spring/sql.xml", "classpath:spring/wolf-core-test.xml"})
 public class UserServiceTest {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceTest.class);
@@ -23,13 +23,10 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Test
     public void testGetUserByUname() {
         String uname = "小灰灰";
-        User user = userService.getUserByName(uname);
+        UserInfo user = userService.getUserByName(uname);
         logger.info("the `{}` user is: {}", uname, user);
 
         uname = "";
@@ -48,17 +45,27 @@ public class UserServiceTest {
         String email = "greywolf@xxx.com";
         Long phone = 15971112301L;
 
-        User ans = userService.login(uname, null, null, password);
+        UserReqDO userReqDO = new UserReqDO();
+        userReqDO.setUname(uname);
+        userReqDO.setPassword(password);
+
+        UserInfo ans = userService.login(userReqDO);
         logger.info("login by illegal uname : {}", ans);
 
-        ans = userService.login(null, email, null, password);
+        userReqDO.setUname(null);
+        userReqDO.setEmail(email);
+        ans = userService.login(userReqDO);
         logger.info("login by email : {}", ans);
 
-        ans = userService.login(null, null, phone, password);
+        userReqDO.setEmail(null);
+        userReqDO.setPhone(phone);
+        ans = userService.login(userReqDO);
         logger.info("login by phone : {}", ans);
 
 
-        ans = userService.login("小灰灰", null, null, password);
+        userReqDO.setEmail(null);
+        userReqDO.setUname("小灰灰");
+        ans = userService.login(userReqDO);
         logger.info("login by uname : {}", ans);
     }
 }

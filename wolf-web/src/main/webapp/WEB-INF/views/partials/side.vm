@@ -1,0 +1,28 @@
+<li>
+    <a href="/app/list"><i class="fa fa-th-large"></i> <span class="nav-label">应用</span></a>
+</li>
+
+
+<li>
+    <a href=""><i class="fa fa-picture-o"></i> <span class="nav-label">图片</span><span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level collapse">
+        <li><a href="/image/put">图片上传</a></li>
+        <li><a href="/image/scale">图片压缩</a></li>
+        <li><a href="/image/operate">图片编辑</a></li>
+    </ul>
+</li>
+
+
+<li>
+    <a href=""><i class="fa fa-bell-o"></i> <span class="nav-label">博客</span><span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level collapse">
+        <li><a href="#">全局设置</a></li>
+    </ul>
+</li>
+
+<li>
+    <a href=""><i class="fa fa-files-o"></i> <span class="nav-label">文档</span><span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level collapse">
+        <li><a href="/doc/tutorial">接入文档</a></li>
+    </ul>
+</li>

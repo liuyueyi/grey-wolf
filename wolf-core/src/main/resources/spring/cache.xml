@@ -14,7 +14,7 @@
         </property>
     </bean>
 
-    <bean id="redisCache" class="com.hust.hui.wolf.base.midware.service.cache.RedisCache">
+    <bean id="redisCache" class="com.hust.hui.wolf.common.cache.impl.RedisCache">
         <property name="masterConf" value="127.0.0.1:6379" />
         <property name="slaveConf" value="127.0.0.1:6379" />
     </bean>

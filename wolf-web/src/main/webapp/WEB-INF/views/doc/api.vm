@@ -1,0 +1,16 @@
+#set($layout = "layouts/main.vm")
+#set($pageTitle = "接入文档")
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+        <a class="doc" href="/static/doc/doc.pdf">PDF File</a>
+    </div>
+</div>
+
+
+
+<script src="/static/js/plugins/jquery.media.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('a.doc').media({width:800, height:600});
+    });
+</script>

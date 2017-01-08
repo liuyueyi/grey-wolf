@@ -7,16 +7,17 @@
     <groupId>com.hust.hui.wolf</groupId>
     <artifactId>grey-wolf</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <modules>
         <module>wolf-core</module>
         <module>wolf-common</module>
-        <module>wolf-base</module>
         <module>wolf-benchmark</module>
-        <module>wolf-console</module>
+        <module>wolf-web</module>
+        <module>wolf-api</module>
     </modules>
 
     <properties>
+        <lombok.version>1.16.6</lombok.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <slf4j.version>1.7.18</slf4j.version>
         <logback-ext-spring.version>0.1.2</logback-ext-spring.version>
@@ -25,6 +26,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>

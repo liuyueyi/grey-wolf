@@ -4,6 +4,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hust.hui.wolf.core.repository.dal.UserDao">
 
+    <insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
+      insert INTO
+      USER
+      (`username`,
+      `nickname`,
+      `password`,
+      `address`,
+      `email`,
+      `phone`,
+      `img`,
+      `extra`,
+      `isDeleted`,
+      `created`,
+      `updated`)
+      VALUES
+      (
+        ${username},
+        ${nickname},
+        ${password},
+        ${address},
+        ${email},
+        ${phone},
+        ${img},
+        ${extra},
+        0,
+        unix_timestamp(now()),
+        unix_timestamp(now())
+      )
+    </insert>
+
+
     <select id="getUserByUname" resultType="User">
         select * from user where username=#{username} limit 1
     </select>

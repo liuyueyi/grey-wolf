@@ -1,6 +1,6 @@
 package com.hust.hui.wolf.core.repository.dal;
 
-import com.hust.hui.wolf.base.domain.model.entity.User;
+import com.hust.hui.wolf.base.domain.model.entity.UserInfo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Map;
@@ -10,9 +10,11 @@ import java.util.Map;
  */
 public interface UserDao {
 
-    User getUserByUname(@Param("username") String uname);
+    boolean addUser(UserInfo userInfo);
 
-    User getUserByUid(@Param("userId") long userId);
+    UserInfo getUserByUname(@Param("username") String uname);
 
-    User login(Map<String, Object> params);
+    UserInfo getUserByUid(@Param("userId") long userId);
+
+    UserInfo login(Map<String, Object> params);
 }

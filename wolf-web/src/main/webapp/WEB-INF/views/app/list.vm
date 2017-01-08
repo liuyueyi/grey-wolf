@@ -1,0 +1,17 @@
+#set($layout = "layouts/main.vm")
+#set($pageTitle = "应用相关")
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+
+        <div class="ibox-title">
+          title
+        </div>
+
+        <div class="ibox-content">
+            应用说明
+        </div>
+
+    </div>
+</div>
+<!-- Page-Level Scripts -->
+<script src="/static/js/biz/appkey.js"></script>

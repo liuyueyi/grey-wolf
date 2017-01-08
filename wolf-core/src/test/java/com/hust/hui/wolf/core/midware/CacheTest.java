@@ -1,6 +1,6 @@
 package com.hust.hui.wolf.core.midware;
 
-import com.hust.hui.wolf.base.midware.api.ICache;
+import com.hust.hui.wolf.common.cache.api.ICache;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by yihui on 16/9/25.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath*:spring/*.xml"})
+@ContextConfiguration({"classpath:spring/sql.xml", "classpath:spring/wolf-core-test.xml"})
 public class CacheTest {
 
     private static final Logger logger = LoggerFactory.getLogger(CacheTest.class);

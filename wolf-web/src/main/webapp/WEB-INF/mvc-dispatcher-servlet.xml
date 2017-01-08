@@ -1,0 +1,41 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:beans="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="classpath:service.xml"/>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <bean id="velocityConfig"
+          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/views/"/>
+        <property name="configLocation" value="/WEB-INF/conf/velocity.properties"/>
+    </bean>
+
+    <bean id="velocityViewResolver"
+          class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".vm"/>
+        <property name="layoutUrl" value="layouts/none.vm"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="exposeSessionAttributes" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="requestContextAttribute" value="rc" />
+    </bean>
+
+    <!--将controller返回的对象封装成json串返回-->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
+</beans>
