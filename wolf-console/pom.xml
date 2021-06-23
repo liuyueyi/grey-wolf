@@ -15,7 +15,7 @@
 
     <properties>
 
-        <commons-fileupload.version>1.3.1</commons-fileupload.version>
+        <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <velocity.version>1.7</velocity.version>
         <velocity-tools.version>2.0</velocity-tools.version>
         <fis-velocity-tools.version>2.11</fis-velocity-tools.version>
